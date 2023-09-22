@@ -1,0 +1,34 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model usuarios {
+  id Int @id @default(autoincrement())
+  nome String
+  senha String
+  email String @unique
+  endereco String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model animais {
+  id Int @id @default(autoincrement())
+  nome String 
+  tipo String
+  idade String
+  descricao String
+  localizacao String
+  status String
+  createdAt DateTime @default(now())
+  updateAt DateTime @updatedAt
+}
+
